@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 class Menu extends React.Component {
   render() {
     return (
-      <ul className="list-group">
+      <ul className="list-group mb-4">
         <li className="list-group-item bg-dark text-white h5">
           <i class="fas fa-bars mr-4" /> Menu
         </li>

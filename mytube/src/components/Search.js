@@ -50,14 +50,13 @@ class SearchComponent extends React.Component {
               placeholder="Search"
             />
           </div>
-          <div className="col">
-            <button
-              onClick={this.buttonClicked}
-              className="btn btn-secondary btn-lg"
-            >
-              Search
-            </button>
-          </div>
+          <button
+            type="submit"
+            onClick={this.buttonClicked}
+            className="btn btn-secondary btn-lg mb-5"
+          >
+            Search
+          </button>
         </div>
         <Videos />
       </div>

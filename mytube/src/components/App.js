@@ -15,7 +15,7 @@ class App extends React.Component {
         <Router>
           <div className="container-fluid my-3">
             <div className="row">
-              <div className="col-md-2 pl-4">
+              <div className="col-lg-2 pl-4">
                 <h3>
                   <i class="fas fa-play mx-4" />
                   myTube
@@ -23,7 +23,7 @@ class App extends React.Component {
                 <hr />
                 <Menu />
               </div>
-              <div className="col-md-10 px-4">
+              <div className="col-lg-10 px-4">
                 <Route path="/" exact={true} component={Trending} />
                 <Route path="/search" component={Search} />
               </div>
