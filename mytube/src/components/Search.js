@@ -53,7 +53,7 @@ class SearchComponent extends React.Component {
           <button
             type="submit"
             onClick={this.buttonClicked}
-            className="btn btn-secondary btn-lg mb-5"
+            className="btn btn-dark btn-lg mb-5"
           >
             Search
           </button>
