@@ -6,7 +6,15 @@ function currentPlayerVideoReducer(currentPlayerVideo = {}, action) {
     fetchOneVideo(store, action);
   }
   if (action.type === "VIDEO_DATA_LOADED") {
-    return action.videoData;
+    let newAction = action.videoData;
+    newAction.snippet.shortDescription = action.videoData.snippet.description.slice(
+      0,
+      300
+    );
+    return newAction;
+  }
+  if (action.type === "CLEAR_VIDEO_DATA") {
+    return {};
   }
 
   return currentPlayerVideo;
