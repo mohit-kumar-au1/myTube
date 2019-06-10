@@ -17,8 +17,8 @@ class CommentsComponent extends React.Component {
           <img
             src={c.snippet.topLevelComment.snippet.authorProfileImageUrl}
             alt={c.snippet.topLevelComment.snippet.authorDisplayName}
-            className="mr-2 mb-2"
-            style={{ borderRadius: "50%", width: "40px" }}
+            className="mr-2 mb-2 rounded-circle"
+            width="45px"
           />{" "}
           <strong>{c.snippet.topLevelComment.snippet.authorDisplayName}</strong>
           <br />
