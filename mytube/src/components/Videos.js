@@ -1,5 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+
 import { stateMapper } from "../store/store";
 
 class VideosComponent extends React.Component {
@@ -13,10 +15,7 @@ class VideosComponent extends React.Component {
 
       return (
         <div key={v.etag} className="col-sm-6 col-md-4 col-lg-3">
-          <a
-            target="_blank"
-            href={`https://www.youtube.com/watch?v=${videoId}`}
-          >
+          <Link to={`/player/${videoId}`}>
             <img
               className="img-fluid mb-1"
               src={v.snippet.thumbnails.high.url}
@@ -28,9 +27,9 @@ class VideosComponent extends React.Component {
                 .slice(0, 10)
                 .join(" ")}
             </p>
-          </a>
+          </Link>
           <p className="mt-1">
-            <i class="fas fa-user-circle mr-2 text-muted" />
+            <i className="fas fa-user-circle mr-2 text-muted" />
             <a
               className="text-muted"
               target="_blank"
@@ -46,7 +45,15 @@ class VideosComponent extends React.Component {
   }
 
   render() {
-    return <div className="row">{this.renderVideos()}</div>;
+    if (this.props.isVideosLoading) {
+      return (
+        <div className="d-flex justify-content-center">
+          <div className="spinner-border" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+        </div>
+      );
+    } else return <div className="row">{this.renderVideos()}</div>;
   }
 }
 

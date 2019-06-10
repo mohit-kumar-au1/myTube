@@ -16,7 +16,7 @@ class SearchComponent extends React.Component {
     this.buttonClicked = this.buttonClicked.bind(this);
   }
 
-  componentDidMount() {
+  componentWillUnmount() {
     this.props.dispatch({
       type: "CLEAR_VIDEOS"
     });
@@ -55,7 +55,7 @@ class SearchComponent extends React.Component {
             onClick={this.buttonClicked}
             className="btn btn-dark btn-lg mb-5"
           >
-            Search
+            <i className="fas fa-search px-3" />
           </button>
         </div>
         <Videos />

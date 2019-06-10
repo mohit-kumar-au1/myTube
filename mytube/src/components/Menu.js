@@ -7,16 +7,16 @@ class Menu extends React.Component {
     return (
       <ul className="list-group mb-4">
         <li className="list-group-item bg-dark text-white h5">
-          <i class="fas fa-bars mr-4" /> Menu
+          <i className="fas fa-bars mr-4" /> Menu
         </li>
         <li className="list-group-item">
-          <i class="fas fa-bolt mr-4" />
+          <i className="fas fa-bolt mr-4" />
           <Link to="/">
             <span className="text-dark"> Trending</span>
           </Link>
         </li>
         <li className="list-group-item">
-          <i class="fas fa-search mr-4" />
+          <i className="fas fa-search mr-4" />
           <Link to="/search">
             <span className="text-dark">Search</span>
           </Link>

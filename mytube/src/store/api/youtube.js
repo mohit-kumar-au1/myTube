@@ -4,7 +4,7 @@ function fetchVideos(store, action) {
   if (action.videoType === "trending") {
     let url = `https://www.googleapis.com/youtube/v3/videos?part=snippet&key=${
       MYTUBE_CONFIG.YOUTUBE_API_KEY
-    }&chart=mostPopular&regionCode=IN&maxResults=30`;
+    }&chart=mostPopular&maxResults=30`;
 
     fetch(url)
       .then(function(data) {
@@ -38,4 +38,24 @@ function fetchVideos(store, action) {
       });
   }
 }
-export { fetchVideos };
+
+function fetchOneVideo(store, action) {
+  let url = `https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=${
+    action.videoId
+  }&key=${MYTUBE_CONFIG.YOUTUBE_API_KEY}`;
+
+  fetch(url)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      store.dispatch({
+        type: "VIDEO_DATA_LOADED",
+        videoData: data.items[0]
+      });
+    })
+    .catch(function(err) {
+      console.log("fetch error =>", err);
+    });
+}
+export { fetchVideos, fetchOneVideo };
