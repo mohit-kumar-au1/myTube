@@ -97,7 +97,7 @@ class VideoPlayerComponent extends React.Component {
                 title="player"
                 src={`https://www.youtube.com/embed/${
                   this.props.match.params.videoId
-                }rel=0`}
+                }`}
                 allowFullScreen
               />
             </div>
@@ -108,7 +108,7 @@ class VideoPlayerComponent extends React.Component {
           <div className="col-md-8">
             <div>
               <span
-                className="badge badge-pill badge-primary my-3 px-3 py-2"
+                className="badge badge-pill badge-dark my-3 px-3 py-2"
                 style={{ fontSize: "100%" }}
               >
                 <i className="fas fa-eye mr-2" />
