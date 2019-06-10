@@ -17,7 +17,7 @@ class VideosComponent extends React.Component {
         <div key={v.etag} className="col-sm-6 col-md-4 col-lg-3">
           <Link to={`/player/${videoId}`}>
             <img
-              className="img-fluid mb-1"
+              className="img-fluid  mb-1 rounded"
               src={v.snippet.thumbnails.high.url}
               alt={v.snippet.title}
             />

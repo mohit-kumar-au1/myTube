@@ -79,4 +79,24 @@ function fetchVideoComments(store, action) {
     });
 }
 
-export { fetchVideos, fetchOneVideo, fetchVideoComments };
+function fetchRelatedVideos(store, action) {
+  let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${
+    action.videoId
+  }&key=${MYTUBE_CONFIG.YOUTUBE_API_KEY}&type=video`;
+
+  fetch(url)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      store.dispatch({
+        type: "LOAD_RELATED_VIDEOS",
+        relatedVideos: data.items
+      });
+    })
+    .catch(function(err) {
+      console.log("fetch error =>", err);
+    });
+}
+
+export { fetchVideos, fetchOneVideo, fetchVideoComments, fetchRelatedVideos };
