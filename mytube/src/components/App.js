@@ -2,8 +2,7 @@ import React from "react";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import { store, stateMapper } from "../store/store";
-import Videos from "./Videos";
+import { store } from "../store/store";
 import Menu from "./Menu";
 import Trending from "./Trending";
 import Search from "./Search";

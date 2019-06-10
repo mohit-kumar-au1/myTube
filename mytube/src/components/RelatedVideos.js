@@ -11,6 +11,12 @@ class RelatedVideosComponent extends React.Component {
     });
   }
 
+  componentWillUnmount() {
+    this.props.dispatch({
+      type: "CLEAR_PLAYER_VIDEO"
+    });
+  }
+
   render() {
     return this.props.relatedVideos.map(r => {
       let videoId = r.id;
@@ -19,17 +25,17 @@ class RelatedVideosComponent extends React.Component {
         videoId = r.id.videoId;
       }
       return (
-        <div>
+        <div key={r.etag}>
           <Link to={`/player/${videoId}`}>
             <img
-              className="img-fluid"
+              className="img-fluid mb-1 rounded"
               src={r.snippet.thumbnails.high.url}
-              alt=""
+              alt={r.snippet.title}
             />
-            <p className=" text-dark font-weight-bold">
+            <p className="text-dark font-weight-bold">
               {r.snippet.title
                 .split(" ")
-                .slice(0, 10)
+                .slice(0, 6)
                 .join(" ")}
             </p>
           </Link>

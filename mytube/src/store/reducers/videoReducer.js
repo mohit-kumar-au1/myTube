@@ -2,11 +2,11 @@ import { fetchVideos } from "../api/youtube";
 import { store } from "../store";
 
 function videoReducer(videos = [], action) {
-  if (action.type == "CLEAR_VIDEOS") {
+  if (action.type === "CLEAR_VIDEOS") {
     return [];
   }
   if (action.type === "FETCH_VIDEOS") {
-    fetchVideos(store, action); 
+    fetchVideos(store, action);
   }
 
   if (action.type === "VIDEOS_LOADED") {

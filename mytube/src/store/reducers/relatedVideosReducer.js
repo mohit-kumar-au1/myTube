@@ -6,6 +6,10 @@ function relatedVideosReducer(relatedVideos = [], action) {
     fetchRelatedVideos(store, action);
   }
 
+  if (action.type == "CLEAR_PLAYER_VIDEO") {
+    return [];
+  }
+
   if (action.type === "LOAD_RELATED_VIDEOS") {
     return action.relatedVideos;
   }
