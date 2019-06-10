@@ -13,6 +13,7 @@ class VideoPlayerComponent extends React.Component {
     };
 
     this.showMoreClicked = this.showMoreClicked.bind(this);
+    this.showLessClicked = this.showLessClicked.bind(this);
   }
 
   componentDidMount() {
@@ -42,22 +43,36 @@ class VideoPlayerComponent extends React.Component {
     });
   }
 
+  showLessClicked() {
+    this.setState({
+      showMoreClicked: false
+    });
+  }
+
   renderDescription() {
     if (this.state.showMoreClicked) {
       return (
         <p>
           {this.props.currentPlayerVideo.snippet &&
-            this.props.currentPlayerVideo.snippet.description}
+            this.props.currentPlayerVideo.snippet.description}{" "}
+          <br />
+          <button
+            onClick={this.showLessClicked}
+            className="btn btn-secondary btn-sm mt-2"
+          >
+            Show Less
+          </button>
         </p>
       );
     } else {
       return (
         <p>
-          {this.props.currentPlayerVideo.snippet &&
-            this.props.currentPlayerVideo.snippet.shortDescription}
+          {`${this.props.currentPlayerVideo.snippet &&
+            this.props.currentPlayerVideo.snippet.shortDescription}...`}{" "}
+          <br />
           <button
             onClick={this.showMoreClicked}
-            className="btn btn-info btn-sm"
+            className="btn btn-secondary btn-sm mt-2"
           >
             Show More
           </button>
@@ -69,43 +84,72 @@ class VideoPlayerComponent extends React.Component {
   render() {
     return (
       <div>
-        <h2>{this.renderTitle()}</h2>
-        <hr />
-        <div className="embed-responsive embed-responsive-16by9">
-          <iframe
-            className="embed-responsive-item"
-            title="player"
-            src={`https://www.youtube.com/embed/${
-              this.props.match.params.videoId
-            }rel=0`}
-            allowFullScreen
-          />
-        </div>
         <div className="row">
           <div className="col-md-8">
-            <h2>
-              views:{" "}
-              {this.props.currentPlayerVideo.statistics &&
-                this.props.currentPlayerVideo.statistics.viewCount}
-              , Likes:{" "}
-              {this.props.currentPlayerVideo.statistics &&
-                this.props.currentPlayerVideo.statistics.likeCount}
-              , Dislikes:{" "}
-              {this.props.currentPlayerVideo.statistics &&
-                this.props.currentPlayerVideo.statistics.dislikeCount}
-            </h2>
+            <div>
+              <h3>{this.renderTitle()}</h3>
+            </div>
+            <hr />
+
+            <div className="embed-responsive embed-responsive-16by9">
+              <iframe
+                className="embed-responsive-item"
+                title="player"
+                src={`https://www.youtube.com/embed/${
+                  this.props.match.params.videoId
+                }rel=0`}
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-md-8">
+            <div>
+              <span
+                className="badge badge-pill badge-primary my-3 px-3 py-2"
+                style={{ fontSize: "100%" }}
+              >
+                <i className="fas fa-eye mr-2" />
+                {this.props.currentPlayerVideo.statistics &&
+                  this.props.currentPlayerVideo.statistics.viewCount}{" "}
+              </span>
+              <span className="float-right">
+                <span
+                  className="badge badge-pill badge-success m-3 px-3 py-2"
+                  style={{ fontSize: "100%" }}
+                >
+                  <i class="fas fa-thumbs-up mr-2" />
+                  {this.props.currentPlayerVideo.statistics &&
+                    this.props.currentPlayerVideo.statistics.likeCount}
+                </span>
+                <span
+                  className="badge badge-pill badge-danger my-3 px-3 py-2"
+                  style={{ fontSize: "100%" }}
+                >
+                  <i class="fas fa-thumbs-down mr-2" />
+                  {this.props.currentPlayerVideo.statistics &&
+                    this.props.currentPlayerVideo.statistics.dislikeCount}
+                </span>
+              </span>
+            </div>
+
+            <hr />
           </div>
         </div>
         <div className="row">
           <div className="col-md-8">{this.renderDescription()}</div>
         </div>
+
         <div className="row">
           <div className="col-md-8">
-            <h2>
+            <hr />
+            <h5 className="mb-4">
               {this.props.currentPlayerVideo.statistics &&
                 this.props.currentPlayerVideo.statistics.commentCount}{" "}
               Comments
-            </h2>
+            </h5>
             <Comments videoId={this.props.match.params.videoId} />
           </div>
         </div>

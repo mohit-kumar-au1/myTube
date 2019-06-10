@@ -13,15 +13,18 @@ class CommentsComponent extends React.Component {
   render() {
     return this.props.currentVideoComments.map(c => {
       return (
-        <p key={c.id}>
+        <div key={c.id}>
           <img
             src={c.snippet.topLevelComment.snippet.authorProfileImageUrl}
             alt={c.snippet.topLevelComment.snippet.authorDisplayName}
+            className="mr-2 mb-2"
+            style={{ borderRadius: "50%", width: "40px" }}
           />{" "}
           <strong>{c.snippet.topLevelComment.snippet.authorDisplayName}</strong>
           <br />
           {c.snippet.topLevelComment.snippet.textOriginal}
-        </p>
+          <hr />
+        </div>
       );
     });
   }
