@@ -156,7 +156,7 @@ class VideoPlayerComponent extends React.Component {
             </div>
           </div>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-4 pr-5">
           <div className="row">
             <div className="col-md">
               <h4>Related Videos</h4>

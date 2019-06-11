@@ -13,17 +13,17 @@ class App extends React.Component {
     return (
       <Provider store={store}>
         <Router>
-          <div className="container-fluid my-3">
+          <div className="container-fluid my-4">
             <div className="row">
-              <div className="col-lg-2 pl-4">
-                <h3>
+              <div className="col-lg-2 pl-5">
+                <h4>
                   <i className="fas fa-play mx-3" />
                   MyTube
-                </h3>
+                </h4>
                 <hr />
                 <Menu />
               </div>
-              <div className="col-lg-10 px-4">
+              <div className="col-lg-10">
                 <Route path="/" exact={true} component={Trending} />
                 <Route path="/search" component={Search} />
                 <Route path="/player/:videoId" component={VideoPlayer} />

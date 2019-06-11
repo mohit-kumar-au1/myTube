@@ -35,7 +35,7 @@ class RelatedVideosComponent extends React.Component {
             <p className="text-dark font-weight-bold">
               {r.snippet.title
                 .split(" ")
-                .slice(0, 6)
+                .slice(0, 9)
                 .join(" ")}
             </p>
           </Link>
