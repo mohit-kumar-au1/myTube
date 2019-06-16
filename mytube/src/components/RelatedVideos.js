@@ -39,7 +39,7 @@ class RelatedVideosComponent extends React.Component {
                 .join(" ")}
             </p>
           </Link>
-          <p className="mt-1">
+          <p className="">
             <i className="fas fa-user-circle mr-2 text-muted" />
             <a
               className="text-muted"
