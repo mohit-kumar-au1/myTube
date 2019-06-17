@@ -16,6 +16,7 @@ class CreatePlaylist extends React.Component {
     };
 
     this.onChange = this.onChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   onChange(event) {
@@ -23,6 +24,34 @@ class CreatePlaylist extends React.Component {
     this.setState({
       [name]: event.target.value
     });
+  }
+
+  validateForm() {
+    let newFormState = this.state.formState;
+
+    if (!this.state.name) {
+      newFormState.isNameValid = false;
+      newFormState.isFormValid = false;
+    }
+
+    if (!this.state.description) {
+      newFormState.isDescriptionValid = false;
+      newFormState.isFormValid = false;
+    }
+
+    this.setState({
+      formState: newFormState
+    });
+
+    return newFormState.isFormValid;
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    if (this.validateForm()) {
+    } else {
+      console.log("form invalid");
+    }
   }
 
   render() {
@@ -37,7 +66,7 @@ class CreatePlaylist extends React.Component {
           </div>
         )}
 
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label htmlFor="">Playlist Name</label>
             <input
