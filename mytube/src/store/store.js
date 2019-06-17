@@ -5,6 +5,7 @@ import currentPlayerVideoReducer from "./reducers/currentPlayerVideoReducer";
 import currentVideoCommentsReducer from "./reducers/currentVideoCommentsReducer";
 import relatedVideosReducer from "./reducers/relatedVideosReducer";
 import playlistsReducer from "./reducers/playlistsReducer";
+import newPlaylistReducer from "./reducers/newPlaylistReducer";
 
 let reducer = combineReducers({
   videos: videoReducer,
@@ -12,7 +13,8 @@ let reducer = combineReducers({
   currentPlayerVideo: currentPlayerVideoReducer,
   currentVideoComments: currentVideoCommentsReducer,
   relatedVideos: relatedVideosReducer,
-  playlists: playlistsReducer
+  playlists: playlistsReducer,
+  newPlaylist: newPlaylistReducer
 });
 
 let store = createStore(reducer);
