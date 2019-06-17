@@ -9,6 +9,7 @@ import Search from "./Search";
 import Profile from "./Profile";
 import Logout from "./Logout";
 import VideoPlayer from "./videoPlayer";
+import CreatePlaylist from "./CreatePlaylist";
 
 class App extends React.Component {
   render() {
@@ -29,6 +30,7 @@ class App extends React.Component {
               <Route path="/app/search" component={Search} />
               <Route path="/app/profile" component={Profile} />
               <Route path="/app/logout" component={Logout} />
+              <Route path="/app/playlists/create" component={CreatePlaylist} />
               <Route path="/app/player/:videoId" component={VideoPlayer} />
             </div>
           </div>

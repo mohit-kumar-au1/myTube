@@ -51,14 +51,19 @@ class MenuComponent extends React.Component {
             this.props.playlists.map(p => {
               return (
                 <li key={p.etag} className="list-group-item">
-                  <i className="fas fa-bolt mr-4" />
-
+                  <i className="fas fa-list mr-4" />
                   <Link to={`/app/playlists/${p.id}`} className="text-dark">
-                    {p.snippet.title}>
+                    {p.snippet.title}
                   </Link>
                 </li>
               );
             })}
+          <li className="list-group-item">
+            <i className="far fa-plus-square mr-4" />
+            <Link to="/app/playlists/create">
+              <span className="text-dark">Add Playlist</span>
+            </Link>
+          </li>
         </ul>
       </div>
     );

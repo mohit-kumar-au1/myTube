@@ -26,7 +26,7 @@ class RelatedVideosComponent extends React.Component {
       }
       return (
         <div key={r.etag}>
-          <Link to={`/player/${videoId}`}>
+          <Link to={`/app/player/${videoId}`}>
             <img
               className="img-fluid mb-1 rounded"
               src={r.snippet.thumbnails.high.url}

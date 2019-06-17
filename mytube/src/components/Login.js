@@ -10,7 +10,7 @@ class Login extends React.Component {
 
   googleResponse(response) {
     if (!response || !response.accessToken) {
-      alert("Sorrt, Google login sign in failed. Try again");
+      alert("Sorry, Google login sign in failed. Try again");
       return;
     }
 
@@ -34,6 +34,7 @@ class Login extends React.Component {
             buttonText="Login with Google"
             onSuccess={this.googleResponse}
             onFailure={this.googleResponse}
+            scope="https://www.googleapis.com/auth/youtube"
           />
         </div>
       );
